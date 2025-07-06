@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mariage Anaïs & Louis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fdfcf8;
+    color: #3e3e3e;
+    scroll-behavior: smooth;
+  }
+
+  header {
+    background: linear-gradient(135deg, #a8d5ba 0%, #f6f1e7 100%);
+    color: #3e3e3e;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+
+  nav {
+    background: #e6f0e6;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .menu-toggle {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+  }
+
+  .menu-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-list li {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .menu-list li:hover {
+    background-color: #cde3cf;
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      text-align: left;
+    }
+
+    .menu-list {
+      display: none;
+      flex-direction: column;
+      background-color: #f6f6f6;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    .menu-list.show {
+      display: flex;
+    }
+  }
+
+  .countdown {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    font-weight: bold;
+    color: #6da582;
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .tab {
+    display: none;
+  }
+
+  .tab.active {
+    display: block;
+    animation: fadeIn 0.8s ease;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .programme-card {
+    background: #ffffff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 5px solid #a8d5ba;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  input, textarea, button {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  button {
+    background: #a8d5ba;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: #6da582;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #f0f6f0;
+    color: #5a5a5a;
+  }
+
+  .icon {
+    margin-right: 0.5rem;
+  }
+</style>
+
+
+</head>
+<body>
+
+  <header>
+    <h1>Anaïs & Louis</h1>
+    <p>Notre Mariage - 13 Juin 2026</p>
+    <div class="countdown">
+      Plus que <span id="timer"></span> jours !
+    </div>
+  </header>
+
+<nav class="navbar">
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+   <ul class="menu-list" id="menu">
+    <li onclick="openTab('accueil')">🎉 Accueil</li>
+    <li onclick="openTab('programme')">🗓 Programme de la journée</li>
+    <li onclick="openTab('acces')">🚗 Accès & stationnement</li>
+    <li onclick="openTab('rsvp')">💌 Confirmation de présence</li>
+    <li onclick="openTab('menu')">🍽️ Menu</li>
+    <li onclick="openTab('hebergement')">🛏️ Hébergement</li>
+    <li onclick="openTab('contact')">📞 Contact</li>
+  </ul>
+</nav>
+
+
+  <div class="content">
+    <div id="accueil" class="tab active">
+      <h2>Bienvenue à notre mariage !</h2>
+      <p>📅 Date : 13 juin 2026</p>
+      <p>📍 Lieu : Tassin-la-Demi-Lune, Rhône</p>
+</h2>
+
+
+      <p>Après 10 belles années d’amour, de rires, d’aventures (et de compromis !), nous avons décidé de célébrer notre histoire comme il se doit : avec un mariage de rêve, entourés des gens qu’on aime.
+</p>Et comme on ne fait pas les choses à moitié, on vous prépare un bon week-end — avec des larmes (de joie j'espère), des pas de danse (terribles dans tous les sens du terme), de la bonne bouffe et surtout… beaucoup d’amour.
+</p>Pour partager tout ça avec vous, on a mis en ligne ce petit site plein d’infos utiles (et d’un peu de notre histoire aussi, parce qu’on (la mariée) est sentimentale). Il y aura des updates, des détails pratiques et même des photos où on espère être bien coiffés.
+</p>On a hâte de vivre ce moment avec vous, et on vous dit à très très bientôt !
+</p>❤️
+</p> Les (futurs) mariés surexcités
+</p>
+    </div>
+
+
+    <div id="programme" class="tab">
+      <h2>Programme de la Journée</h2>
+      <div class="programme-card"><strong>14h00 :</strong> Cérémonie à la mairie - Tassin-la-Demi-Lune, 69160</div>
+      <div class="programme-card"><strong>15h30 :</strong> Cérémonie religieuse - Tassin-la-Demi-Lune, 69160</div>
+      <div class="programme-card"><strong>17h00 :</strong> Vin d'honneur - Salle des fêtes</div>
+      <div class="programme-card"><strong>20h00 :</strong> Dîner & Soirée dansante - Salle des fêtes</div>
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Photo de nous">
+    </div>
+
+    <div id="acces" class="tab">
+      <h2>Accès & Stationnement</h2>
+      <p>Pour ceux qui viennent en voiture :
+<p>Avenue Charles de Gaulle : places souvent disponibles le long de l’avenue.
+<p>Promenade des Tuileries : quelques places disponibles ici aussi, juste à côté.
+<p>Parking de l’Intermarché : pour le temps de la mairie, ça devrait passer discrètement !
+<p>Parking du Phare de Tassin : un peu plus éloigné, comptez entre 5 et 10 minutes de marche (tout dépend de votre ponctualité ou de votre motivation 😄).
+<p>⚠️ Attention : Il est très très courant de voir la police distribuer des petits « cadeaux » sur les pare-brises dans ce coin. Je me dédouane donc de toute responsabilité en cas de prune récoltée !
+<p></p>
+<p>Pour ceux qui viennent en bus :
+<p>Bonne nouvelle ! L’arrêt du C21 est juste devant la mairie — pratique, non ?
+<p>Son petit nom : Demi-Lune Mairie. Impossible de le louper !
+<p>Pour ceux qui viennent à pied :
+<p>Comptez environ 20 minutes de marche sans talons, et 30 minutes avec (on vous voit, les téméraires 👠).
+<p>’objectif : ne pas arriver après la mariée… et lui voler la vedette 😏</p>
+
+      </div>
+
+    <div id="menu" class="tab">
+      <h2>🍽️ Menu</h2>
+      <p>Entrée : Tartare de saumon</p>
+      <p>Plat : Filet mignon sauce forestière</p>
+      <p>Dessert : Pièce montée</p>
+    </div>
+    
+    <div id="rsvp" class="tab">
+      <h2>Confirmation de présence</h2>
+      <p>Merci de confirmer votre présence via la section Présence de notre site. </p>
+      <p>Indiquez si vous venez avec des enfants et/ou si vous avez des régimes alimentaires particuliers.</p>
+      <p> Cela nous aidera à organiser au mieux cette journée exceptionnelle.</p>
+
+    </div>
+    <div id="contact" class="tab">
+      <h2>📞 Contact</h2>
+      <form>
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre email" required>
+        <textarea rows="4" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+<div id="hebergement" class="tab">
+  <h2>🏨 Hébergements à proximité</h2>
+  <div class="programme-card">
+    <strong>Hôtel Le Cèdre</strong><br>
+    📍 Tassin-la-Demi-Lune (à 5 min)<br>
+    💶 85€/nuit (petit-déjeuner inclus)<br>
+    🛏️ 10 chambres disponibles
+  </div>
+
+  <div class="programme-card">
+    <strong>Gîte des Tilleuls</strong><br>
+    📍 Francheville (à 10 min)<br>
+    💶 150€/nuit pour 4 personnes<br>
+    🛏️ 2 gîtes disponibles
+  </div>
+
+  <div class="programme-card">
+    <strong>Airbnb de Camille</strong><br>
+    📍 Lyon 5e (à 12 min)<br>
+    💶 65€/nuit<br>
+    🛏️ 1 appartement disponible
+  </div>
+
+  <p style="margin-top: 1rem;">📩 <em>Pour réserver, contactez directement les établissements ou les mariés si besoin d’aide !</em></p>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('show');
+  }
+
+  function openTab(tabId) {
+    // Masquer tous les onglets
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    // Afficher l’onglet sélectionné
+    document.getElementById(tabId).classList.add('active');
+
+    // Fermer le menu hamburger si en mobile
+    const menu = document.getElementById('menu');
+    if (menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  }
+
+  // Compte à rebours
+  const timer = document.getElementById("timer");
+  const targetDate = new Date("2026-06-13T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    timer.textContent = days > 0 ? days : 0;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 86400000); // mise à jour quotidienne
+</script>
+
+
+  <footer>
+    <p>© 2025 Anaïs & Louis - Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>
