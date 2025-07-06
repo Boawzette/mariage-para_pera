@@ -335,17 +335,50 @@
 
     if (input === "AnaisLouis") {
       document.getElementById("password-overlay").style.display = "none";
-      openTab("accueil"); // Active l'onglet "accueil"
+      openTab("accueil");
     } else {
       errorMsg.style.display = "block";
     }
   }
 
-  // Optionnel : Appuyer sur "Entrée" valide aussi
-  document.getElementById("password-input").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-      checkPassword();
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('show');
+  }
+
+  function openTab(tabId) {
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+
+    const menu = document.getElementById('menu');
+    if (menu.classList.contains('show')) {
+      menu.classList.remove('show');
     }
+  }
+
+  const timer = document.getElementById("timer");
+  const targetDate = new Date("2026-06-13T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    timer.textContent = days > 0 ? days : 0;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 86400000); // 1 jour
+
+  // ✅ Cette partie doit attendre que le DOM soit chargé
+  window.addEventListener("DOMContentLoaded", function () {
+    const inputField = document.getElementById("password-input");
+    inputField.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        checkPassword();
+      }
+    });
   });
 
   function toggleMenu() {
