@@ -285,17 +285,7 @@
 </div>
 
 <script>
-  // function checkPassword() {
-  //   const input = document.getElementById("password-input").value;
-  //   const errorMsg = document.getElementById("error-msg");
 
-  //   if (input === "AnaisLouis") {
-  //     document.getElementById("password-overlay").style.display = "none";
-  //     openTab("accueil");
-  //   } else {
-  //     errorMsg.style.display = "block";
-  //   }
-  // }
 
   function toggleMenu() {
     const menu = document.getElementById('menu');
@@ -327,15 +317,6 @@
   updateCountdown();
   setInterval(updateCountdown, 86400000); // 1 jour
 
-  // ✅ Cette partie doit attendre que le DOM soit chargé
-  window.addEventListener("DOMContentLoaded", function () {
-    const inputField = document.getElementById("password-input");
-    inputField.addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        checkPassword();
-      }
-    });
-  });
 
   function toggleMenu() {
     const menu = document.getElementById('menu');
