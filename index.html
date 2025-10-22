@@ -185,7 +185,7 @@
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   ">
-    <h2 style="margin-bottom: 1rem;">🔒 Accès privé</h2>
+    <!-- <h2 style="margin-bottom: 1rem;">🔒 Accès privé</h2>
     <p>Veuillez entrer le mot de passe pour accéder au site :</p>
     <input type="password" id="password-input" placeholder="Mot de passe" style="
       margin: 1rem 0;
@@ -205,7 +205,7 @@
       border-radius: 5px;
       cursor: pointer;
     ">Entrer</button>
-    <p id="error-msg" style="color: red; margin-top: 1rem; display: none;">Mot de passe incorrect</p>
+    <p id="error-msg" style="color: red; margin-top: 1rem; display: none;">Mot de passe incorrect</p> -->
   </div>
 </div>
 
@@ -329,17 +329,17 @@
 </div>
 
 <script>
-  function checkPassword() {
-    const input = document.getElementById("password-input").value;
-    const errorMsg = document.getElementById("error-msg");
+  // function checkPassword() {
+  //   const input = document.getElementById("password-input").value;
+  //   const errorMsg = document.getElementById("error-msg");
 
-    if (input === "AnaisLouis") {
-      document.getElementById("password-overlay").style.display = "none";
-      openTab("accueil");
-    } else {
-      errorMsg.style.display = "block";
-    }
-  }
+  //   if (input === "AnaisLouis") {
+  //     document.getElementById("password-overlay").style.display = "none";
+  //     openTab("accueil");
+  //   } else {
+  //     errorMsg.style.display = "block";
+  //   }
+  // }
 
   function toggleMenu() {
     const menu = document.getElementById('menu');
