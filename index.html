@@ -115,3 +115,171 @@
   .tab.active {
     display: block;
     animation: fadeIn 0.8s ease;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .programme-card {
+    background: #ffffff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 5px solid #a8d5ba;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  input, textarea, button {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  button {
+    background: #a8d5ba;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: #6da582;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #f0f6f0;
+    color: #5a5a5a;
+  }
+
+  .icon {
+    margin-right: 0.5rem;
+  }
+</style>
+</head>
+
+<body>
+  <header>
+    <h1>Anaïs & Louis</h1>
+    <p>Notre Mariage - 13 Juin 2026</p>
+    <div class="countdown">
+      Plus que <span id="timer"></span> jours !
+    </div>
+  </header>
+
+<nav class="navbar">
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul class="menu-list" id="menu">
+    <li onclick="openTab('accueil')">🎉 Accueil</li>
+    <li onclick="openTab('programme')">🗓 Programme</li>
+    <li onclick="openTab('acces')">🚗 Accès</li>
+    <li onclick="openTab('rsvp')">💌 RSVP</li>
+    <li onclick="openTab('menu')">🍽️ Menu</li>
+    <li onclick="openTab('hebergement')">🛏️ Hébergement</li>
+    <li onclick="openTab('contact')">📞 Contact</li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div id="accueil" class="tab active">
+    <h2>Bienvenue à notre mariage !</h2>
+    <p>📅 Date : 13 juin 2026</p>
+    <p>📍 Lieu : Tassin-la-Demi-Lune, Rhône</p>
+    <p>Après 10 belles années d’amour, de rires, d’aventures (et de compromis !), nous avons décidé de célébrer notre histoire comme il se doit : entourés des gens qu’on aime ❤️</p>
+  </div>
+
+  <div id="programme" class="tab">
+    <h2>Programme de la Journée</h2>
+    <div class="programme-card"><strong>14h00 :</strong> Cérémonie à la mairie</div>
+    <div class="programme-card"><strong>15h30 :</strong> Cérémonie religieuse</div>
+    <div class="programme-card"><strong>17h00 :</strong> Vin d'honneur</div>
+    <div class="programme-card"><strong>20h00 :</strong> Dîner & Soirée dansante</div>
+  </div>
+
+  <div id="acces" class="tab">
+    <h2>Accès & Stationnement</h2>
+    <p>Pour ceux qui viennent en voiture ou en bus : plusieurs parkings et arrêts proches du lieu. 🚗🚌</p>
+  </div>
+
+  <div id="menu" class="tab">
+    <h2>🍽️ Menu</h2>
+    <p>Entrée : Tartare de saumon</p>
+    <p>Plat : Filet mignon sauce forestière</p>
+    <p>Dessert : Pièce montée</p>
+  </div>
+
+  <div id="rsvp" class="tab">
+    <h2>Confirmation de présence</h2>
+    <p>Merci de confirmer votre présence via le formulaire ci-dessous. 💌</p>
+  </div>
+
+  <div id="hebergement" class="tab">
+    <h2>🏨 Hébergements à proximité</h2>
+    <div class="programme-card">
+      <strong>Hôtel Le Cèdre</strong><br>
+      📍 Tassin-la-Demi-Lune (à 5 min)
+    </div>
+  </div>
+
+  <div id="contact" class="tab">
+    <h2>📞 Contact</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea rows="4" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Anaïs & Louis - Tous droits réservés</p>
+</footer>
+
+<script>
+  // Effet de fade-in à l’arrivée
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+
+  // Menu mobile
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('show');
+  }
+
+  // Navigation entre onglets
+  function openTab(tabId) {
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    document.getElementById('menu').classList.remove('show');
+  }
+
+  // Compte à rebours
+  const timer = document.getElementById("timer");
+  const targetDate = new Date("2026-06-13T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+    timer.textContent = days;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 86400000);
+</script>
+</body>
+</html>
